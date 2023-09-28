@@ -10,4 +10,15 @@ PAWCARE: Your Pet's Wellness Companion! Schedule online appointments for expert 
 
 - [LUJANG SANTO LUPAI](https://github.com/sultansanto)
 
+## Installation
+-Flutter SDK
+-Dart SDK
+-Editor/IDE(Visual Studio Code,Android Studio)
+-Android Studio(Optional)
+-Xcode(Optional)
+-Emulators/Simulators
+-Flutter Plugins and Packages
+-Firebase or Backend Setup
+-Version Control(Optional)
+
 

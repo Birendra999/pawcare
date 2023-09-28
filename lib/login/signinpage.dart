@@ -133,22 +133,26 @@ class _SignInPageState extends State<SignInPage> {
                                 });
                               },
                             ),
-                            TextFormField(
-                              key: const ValueKey('password'),
-                              decoration: const InputDecoration(
-                                  hintText: 'Enter your Password'),
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Enter a valid password';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              onSaved: (value) {
-                                setState(() {
-                                  password = value!;
-                                });
-                              },
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 50),
+                              child: TextFormField(
+                                key: const ValueKey('password'),
+                                decoration: const InputDecoration(
+                                 
+                                    hintText: 'Enter your Password'),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter a valid password';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                onSaved: (value) {
+                                  setState(() {
+                                    password = value!;
+                                  });
+                                },
+                              ),
                             ),
                             const SizedBox(height: 10,),
                             ElevatedButton(
@@ -179,6 +183,3 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 }
-//  Column(
-//         
-//       ),
