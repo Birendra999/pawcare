@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "615770970862",
+    "project_id": "pawcare-852db",
+    "storage_bucket": "pawcare-852db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615770970862:android:6f0c830b6c9e6d18db31ff",
+        "android_client_info": {
+          "package_name": "com.example.pawcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQhsI0KSYfb7Bdnve_lfVlksne9oaFBmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
