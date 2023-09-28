@@ -8,4 +8,6 @@ PAWCARE: Your Pet's Wellness Companion! Schedule online appointments for expert 
 
 - [BIRENDRA BAHADUR BUDHA](https://github.com/Birendra999)
 
+- [LUJANG SANTO LUPAI](https://github.com/sultansanto)
+
 
