@@ -23,6 +23,7 @@ class _SignInPageState extends State<SignInPage> {
       resizeToAvoidBottomInset: false,
       body:Column(
         children: [
+          
           const Expanded(
             child: Column(),
           ),
@@ -36,39 +37,49 @@ class _SignInPageState extends State<SignInPage> {
                   child: loggedIn == true
                       ? Column(
                           children: [
-                            TextFormField(
-                              key: const ValueKey('email'),
-                              decoration:
-                                  const InputDecoration(hintText: 'Enter your email'),
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Enter a valid email';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              onSaved: (value) {
-                                setState(() {
-                                  email = value!;
-                                });
-                              },
+                            Image.asset('images/animation_ln6bve2m.json',
+                            height: 100,
+                            width: 100,
                             ),
-                            TextFormField(
-                              key: const ValueKey('password'),
-                              decoration: const InputDecoration(
-                                  hintText: 'Enter your Password'),
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Enter a valid password';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              onSaved: (value) {
-                                setState(() {
-                                  password = value!;
-                                });
-                              },
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15),
+                              child: TextFormField(
+                                key: const ValueKey('email'),
+                                decoration:
+                                    const InputDecoration(hintText: 'Enter your email'),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter a valid email';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                onSaved: (value) {
+                                  setState(() {
+                                    email = value!;
+                                  });
+                                },
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                              child: TextFormField(
+                                key: const ValueKey('password'),
+                                decoration: const InputDecoration(
+                                    hintText: 'Enter your Password'),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter a valid password';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                onSaved: (value) {
+                                  setState(() {
+                                    password = value!;
+                                  });
+                                },
+                              ),
                             ),
                             ElevatedButton(
                                 onPressed: () {
@@ -77,7 +88,11 @@ class _SignInPageState extends State<SignInPage> {
                                     APIs.signIn(email, password, context);
                                   }
                                 },
-                                child: const Text('Sign In')),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: const Text('Sign In'),
+                                )
+                                ),
                           ],
                         )
                       : Column(
@@ -133,26 +148,22 @@ class _SignInPageState extends State<SignInPage> {
                                 });
                               },
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 50),
-                              child: TextFormField(
-                                key: const ValueKey('password'),
-                                decoration: const InputDecoration(
-                                 
-                                    hintText: 'Enter your Password'),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Enter a valid password';
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                onSaved: (value) {
-                                  setState(() {
-                                    password = value!;
-                                  });
-                                },
-                              ),
+                            TextFormField(
+                              key: const ValueKey('password'),
+                              decoration: const InputDecoration(
+                               hintText: 'Enter your Password'),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Enter a valid password';
+                                } else {
+                                  return null;
+                                }
+                              },
+                              onSaved: (value) {
+                                setState(() {
+                                  password = value!;
+                                });
+                              },
                             ),
                             const SizedBox(height: 10,),
                             ElevatedButton(

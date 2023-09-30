@@ -23,6 +23,7 @@ void main() async {
       ChangeNotifierProvider(
         create: (context) => CartItemProvider(),
       ),
+      
       ChangeNotifierProvider(
         create: (context) => ProductProvider(),
       )
@@ -49,6 +50,7 @@ class _MyAppState extends State<MyApp> {
 
   getProd() async {
     prods = await Future.value(APIs.products());
+
   }
 
   @override
