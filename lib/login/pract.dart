@@ -24,18 +24,9 @@ class _SignInPageState extends State<SignInPage> {
       resizeToAvoidBottomInset: false,
       body:Column(
         children: [
-          Container(
-            alignment: Alignment.center,
-            height: 300,
-            child: Lottie.asset("images/animation_lmyu2k9e.json"),
-          ),
           
           const Expanded(
-            child: Column(
-              children: [
-                
-              ],
-            ),
+            child: Column(),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 100, 18, 200),
