@@ -27,6 +27,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     AppointmentScreen(),
     MessageScreen(),
     VaccineScreen(),
+    
     AccountScreen(),
   ];
 
