@@ -36,12 +36,12 @@ class _SignInPageState extends State<SignInPage> {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.only(top: 150, left: 10, right: 10, bottom: 50),
-              alignment: Alignment.center,
-              height: 250,
-              child: Lottie.asset("images/animation_ln6bve2m.json"),
-            ),
+            // Container(
+            //   padding: EdgeInsets.only(top: 150, left: 10, right: 10, bottom: 50),
+            //   alignment: Alignment.center,
+            //   height: 250,
+            //   child: Lottie.asset("images/animation_ln6bve2m.json"),
+            // ),
             
             const Expanded(
               child: Column(
