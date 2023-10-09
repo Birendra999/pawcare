@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:pawcare/login/pract.dart';
 // import 'package:pawcare/login/signinpage.dart';
 import 'package:pawcare/navbar_pages/appointment_page.dart';
+import 'package:pawcare/navbar_pages/cartpage.dart';
 // import 'package:pawcare/navbar_pages/cartpage.dart';
 import 'package:pawcare/providers/cart_item_provider.dart';
 import 'package:provider/provider.dart';
@@ -33,21 +34,36 @@ class _AccountScreenState extends State<AccountScreen> {
           padding:  EdgeInsets.symmetric(horizontal: 30,vertical: 10),
           child: ListView(
             children: [
-              CircleAvatar(
-                radius: size.width*0.15,
-                child: Icon(Icons.person,size: 100,),
+              Container(
+                padding: EdgeInsets.fromLTRB(100, 10, 120, 30),
+                height: 150,
+                child: Stack(
+                  children: [
+                    CircleAvatar(
+                      radius: size.width*0.15,
+                      child: Icon(Icons.person,size: 100,),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: InkWell(
+                        child: Icon(Icons.photo,color: Colors.blue,),),),
+
+                  ],
+                ),
               ),
                SizedBox(height: size.height*0.03,),
               ListTile(
                 leading: const Icon(Icons.shopping_cart),
-                onTap: (){},
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>CartPage()));
+                },
                 contentPadding: EdgeInsets.only(left: 20),
                 title: const Text("My Cart"),
               ),
               ListTile(
                 leading: const Icon(Icons.date_range),
                 onTap: (){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AppointmentPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AppointmentPage()));
                 },
               title: const Text("My Schedules"),
               ),

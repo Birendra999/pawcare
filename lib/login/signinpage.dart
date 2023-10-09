@@ -33,25 +33,18 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   padding: EdgeInsets.only(top: 150, left: 10, right: 10, bottom: 50),
-            //   alignment: Alignment.center,
-            //   height: 250,
-            //   child: Lottie.asset("images/animation_ln6bve2m.json"),
-            // ),
-            
-            const Expanded(
-              child: Column(
-                children: [
-                  
-                ],
-              ),
+            Container(
+              height:250,
+              width: 250,
+              padding: EdgeInsets.only(top:90,left:20),
+              child: Lottie.asset("images/animation_ln6bve2m.json"),
             ),
+           
             Padding(
-              padding: const EdgeInsets.fromLTRB(18, 100, 18, 200),
+              padding: const EdgeInsets.fromLTRB(18, 100, 18, 60),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
