@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:pawcare/models/item_model.dart';
+import 'package:pawcare/pages/buynow_page.dart';
+// import 'package:pawcare/navbar_pages/buynow_page.dart';
 import 'package:pawcare/providers/cart_item_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -133,8 +135,18 @@ class _PetCardState extends State<PetCard> {
                       ),
                     ),
                   ),
+                     
+
+
+                  
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                     Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => BuyPage(
+                              title: widget.product.title,
+                              description: widget.product.description,
+                              price: widget.product.price)));
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
