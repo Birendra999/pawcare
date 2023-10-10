@@ -49,14 +49,23 @@ class DiseaseCard extends StatelessWidget {
               children: [
                 ElevatedButton(
                     onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('Added to schedules successfully'),
+                        duration: Duration(
+                            seconds:
+                                2), // Duration for which the snackbar will be visible
+                      )
+                      );
                       FirebaseFirestore.instance
                           .collection('users')
                           .doc(FirebaseAuth.instance.currentUser!.uid)
                           .collection('appointments')
                           .doc('Get this shot: $title')
-                          .set({'time': DateTime.now().millisecondsSinceEpoch});
+                          .set({'time': DateTime.now().millisecondsSinceEpoch}
+                          );
                     },
-                    child: Text('Add this to Schedules'))
+                    child: Text('Add this to Schedules')
+                    )
               ],
             )
           ],
