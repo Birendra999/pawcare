@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pawcare/api/apis.dart';
@@ -24,42 +23,165 @@ class _SignInPageState extends State<SignInPage> {
   //             Container(
   //               alignment: Alignment.center,
   //               height: 300,
-      
+
   //               child:Lottie.asset("assets/animation_lmyu2k9e.json",
   //                )
-      
+
   //             ),
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.sizeOf(context);
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height:250,
-              width: 250,
-              padding: EdgeInsets.only(top:90,left:20),
-              child: Lottie.asset("images/animation_ln6bve2m.json"),
-            ),
-           
-            Padding(
-              padding: const EdgeInsets.fromLTRB(18, 100, 18, 60),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Form(
-                    key: _formKey,
-                    child: loggedIn == true
-                        ? Column(
-                            children: [
-                                    
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 15),
-                                child: TextFormField(
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: ListView(
+            children: [
+              Container(
+                height: size.height * 0.4,
+                child: Lottie.asset("images/animation_ln6bve2m.json"),
+              ),
+              const Expanded(
+                child: Column(
+                  children: [],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(18, 100, 18, 200),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Form(
+                      key: _formKey,
+                      child: loggedIn == true
+                          ? Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15),
+                                  child: TextFormField(
+                                    key: const ValueKey('email'),
+                                    decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        hintText: 'Enter your email'),
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Enter a valid email';
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    onSaved: (value) {
+                                      setState(() {
+                                        email = value!;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15.0),
+                                  child: TextFormField(
+                                    key: const ValueKey('password'),
+                                    decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(
+                                          10,
+                                        )),
+                                        hintText: 'Enter your Password'),
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Enter a valid password';
+                                      } else {
+                                        return null;
+                                      }
+                                    },
+                                    onSaved: (value) {
+                                      setState(() {
+                                        password = value!;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(18.0),
+                                  child: MaterialButton(
+                                      height: size.height * 0.06,
+                                      minWidth: size.width,
+                                      color: Colors.red,
+                                      onPressed: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          _formKey.currentState!.save();
+                                          APIs.signIn(email, password, context);
+                                        }
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(10),
+                                        child: const Text('Sign In'),
+                                      )),
+                                ),
+                              ],
+                            )
+                          : Column(
+                              children: [
+                                TextFormField(
+                                  key: const ValueKey('name'),
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      hintText: 'First Name'),
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Enter a valid name';
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  onSaved: (value) {
+                                    setState(() {
+                                      name = value!;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                TextFormField(
+                                  key: const ValueKey('age'),
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      hintText: 'Enter your Age'),
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Enter a valid age';
+                                    } else {
+                                      return null;
+                                    }
+                                  },
+                                  onSaved: (value) {
+                                    setState(() {
+                                      age = value!;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                TextFormField(
                                   key: const ValueKey('email'),
-                                  decoration:
-                                      const InputDecoration(hintText: 'Enter your email'),
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      hintText: 'Enter your email'),
                                   validator: (value) {
                                     if (value!.isEmpty) {
                                       return 'Enter a valid email';
@@ -73,12 +195,16 @@ class _SignInPageState extends State<SignInPage> {
                                     });
                                   },
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                                child: TextFormField(
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                TextFormField(
                                   key: const ValueKey('password'),
-                                  decoration: const InputDecoration(
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                        10,
+                                      )),
                                       hintText: 'Enter your Password'),
                                   validator: (value) {
                                     if (value!.isEmpty) {
@@ -93,93 +219,13 @@ class _SignInPageState extends State<SignInPage> {
                                     });
                                   },
                                 ),
-                              ),
-                              ElevatedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      _formKey.currentState!.save();
-                                      APIs.signIn(email, password, context);
-                                    }
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10),
-                                    child: const Text('Sign In'),
-                                  )
-                                  ),
-                            ],
-                          )
-                        : Column(
-                            children: [
-                              TextFormField(
-                                key: const ValueKey('name'),
-                                decoration:
-                                    const InputDecoration(hintText: 'First Name'),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Enter a valid name';
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                onSaved: (value) {
-                                  setState(() {
-                                    name = value!;
-                                  });
-                                },
-                              ),
-                              TextFormField(
-                                key: const ValueKey('age'),
-                                decoration:
-                                    const InputDecoration(hintText: 'Enter your Age'),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Enter a valid age';
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                onSaved: (value) {
-                                  setState(() {
-                                    age = value!;
-                                  });
-                                },
-                              ),
-                              TextFormField(
-                                key: const ValueKey('email'),
-                                decoration:
-                                    const InputDecoration(hintText: 'Enter your email'),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Enter a valid email';
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                onSaved: (value) {
-                                  setState(() {
-                                    email = value!;
-                                  });
-                                },
-                              ),
-                              TextFormField(
-                                key: const ValueKey('password'),
-                                decoration: const InputDecoration(
-                                 hintText: 'Enter your Password'),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Enter a valid password';
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                onSaved: (value) {
-                                  setState(() {
-                                    password = value!;
-                                  });
-                                },
-                              ),
-                              const SizedBox(height: 10,),
-                              ElevatedButton(
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                MaterialButton(
+                                  color: Colors.red,
+                                  height: size.height * 0.07,
+                                  minWidth: size.width,
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
                                       _formKey.currentState!.save();
@@ -187,24 +233,25 @@ class _SignInPageState extends State<SignInPage> {
                                           email, password, name, age, context);
                                     }
                                   },
-                                  child: const Text('Sign Up'))
-                            ],
-                          ),
-                  ),
-                  InkWell(
-                      onTap: () {
-                        setState(() {
-                          loggedIn = loggedIn == true ? false : true;
-                        });
-                      },
-                      child:
-                          loggedIn == true ? const Text('Sign Up') : const Text('Sign In')),
-                ],
+                                  child: const Text('Sign Up'),
+                                )
+                              ],
+                            ),
+                    ),
+                    InkWell(
+                        onTap: () {
+                          setState(() {
+                            loggedIn = loggedIn == true ? false : true;
+                          });
+                        },
+                        child: loggedIn == true
+                            ? const Text('Sign Up')
+                            : const Text('Sign In')),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      )
-    );
+            ],
+          ),
+        ));
   }
 }
